@@ -64,13 +64,13 @@ comment 'Tabela com os Usuários do Jogo (Braille_Boom)';
 Em seguida, navegue até a pasta server, e execute o seguinte comando num terminal a parte:
 
 ```console
-npm run devStart
+npm install && npm run devStart
 ```
 
 Posteriormente, navegue até o diretório campo-minado-braille (client), e execute o seguinte comando:
 
 ```console
-npm start
+npm install && npm start
 ```
 As aplicações vão executar, inicialmente nas seguintes portas (3001), para o servidor,
 e 3000 para o client (aplicação web). Portanto, acesse o navegador na página: [http://localhost:3000](http://localhost:3000).
