@@ -2,7 +2,8 @@
 require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const sessions = require("express-session");
+const session = require("express-session");
+const MSSQLStore = require("connect-mssql-v2");
 const cors = require("cors");
 const app = express();
 const mysql = require("mysql");
@@ -20,12 +21,32 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const oneDay = 1000 * 60 * 60 * 24;
+
+const config = {
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  server: process.env.DB_HOST, // You can use 'localhost\\instance' to connect to named instance
+  database: process.env.DB_NAME,
+  options: {
+    encrypt: true, // Use this if you're on Windows Azure
+    trustServerCertificate: true, // use this if your MS SQL instance uses a self signed certificate
+  },
+};
+
+const options = {
+  table: process.env.DB_SESSION_TABLE,
+  ttl: oneDay
+};
+
 app.use(
-  sessions({
-    secret: "zYi2UK2om%gDPQ#VYh8Zig*b5mRnHE",
-    saveUninitialized: true,
-    cookie: { maxAge: oneDay },
+  session({
+    secret: process.env.SESSION_SECRET,
     resave: false,
+    saveUninitialized: true,
+    store: new MSSQLStore(config, options), // options are optional
+    cookie: {
+      maxAge: oneDay
+    }
   })
 );
 
@@ -71,8 +92,17 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/", (req, res, next) => {
+  if (req.session.views) {
+    req.session.views++
+    res.setHeader('Content-Type', 'text/html')
+    res.write('<p>views: ' + req.session.views + '</p>')
+    res.write('<p>expires in: ' + (req.session.cookie.maxAge / 1000) + 's</p>')
+    res.end()
+  } else {
+    req.session.views = 1
+    res.end('welcome to the session demo. refresh!')
+  }
 });
 
 app.listen(3001, () => {

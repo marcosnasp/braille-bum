@@ -1,0 +1,152 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url("../image/background/background_um_campo_em_tela.png");
+  /*width: 800px;*/ /*any size*/
+  /*height: 600px;*/ /*any size*/
+  text-align: center;
+  font-family: "Berlin Sans FB Demi", sans-serif;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-family: "Berlin Sans FB Demi", sans-serif;
+  color: #ffffff;
+}
+
+#caixa_campo {
+  border-radius: 25px;
+  background: #69b969;
+  padding: 20px;
+  width: 100px;
+  height: 175px;
+  margin-left: 525px;
+  margin-top: 75px;
+  display: table;
+  object-fit: cover;
+}
+
+#opcao {
+  background-image: url(../img/a.png);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 4px 2px 4px 2px;
+  -moz-border-radius: 1em;
+  display: table-cell;
+}
+
+#caixa_linha {
+  display: table;
+}
+
+#caixa_linha > div {
+  table-layout: fixed;
+}
+
+#caixa_bombas_bandeiras {
+  text-align: center;
+  width: 100px;
+  height: 80px;
+  margin-left: 525px;
+  margin-top: 5px;
+}
+
+.img_dicas_bandeiras_bombas {
+  width: 180px;
+  height: 100px;
+}
+
+.img_botao {
+  height: auto;
+  height: auto;
+  width: auto;
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 100%;
+}
+
+.img_dicas {
+  height: auto;
+  width: auto;
+  padding: 5px 0px 0px 5px;
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.float-container {
+  display: flex;
+  width: 820px;
+  height: 120px;
+}
+
+.letra {
+  width: 60px;
+  flex: 1;
+  padding: 1px;
+}
+
+input[type="text"] {
+  border-radius: 10px;
+  background: #8d4700;
+  color: white;
+  padding: 15px;
+  width: 30px;
+  height: 15px;
+  margin: 0 auto;
+}
+
+.resultados-box {
+  display: flex;
+}
+
+.resultados-box > div {
+  flex: 1;
+}
+
+div {
+  font-family: "Berlin Sans FB Demi", sans-serif;
+  color: #343434;
+  size: 32px;
+}
+
+button {
+  width: 60px;
+  height: 60px;
+  border: none;
+  margin: 4px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 100%;
+}
+
+.icon {
+  margin: 0px;
+  padding: 0px;
+}
+
+.letra_serie {
+  margin: 0px;
+  padding: 0px;
+  width: 10px;
+  height: 10px;
+}
+
+.espaco_letras {
+  margin: 10px 12px 0px 12px;
+}
