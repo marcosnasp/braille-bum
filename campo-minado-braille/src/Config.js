@@ -9,6 +9,7 @@ const serie = [
     ],
     bandeiras: 1,
     bombas: 5,
+    exibeResultado: false
   },
   {
     letra: "B",
@@ -20,6 +21,7 @@ const serie = [
     ],
     bandeiras: 2,
     bombas: 4,
+    exibeResultado: false
   },
   {
     letra: "C",
@@ -31,6 +33,7 @@ const serie = [
     ],
     bandeiras: 2,
     bombas: 4,
+    exibeResultado: false
   },
   {
     letra: "D",
@@ -42,6 +45,7 @@ const serie = [
     ],
     bandeiras: 3,
     bombas: 3,
+    exibeResultado: false
   },
   {
     letra: "E",
@@ -53,6 +57,7 @@ const serie = [
     ],
     bandeiras: 2,
     bombas: 4,
+    exibeResultado: false
   },
   {
     letra: "F",
@@ -64,6 +69,7 @@ const serie = [
     ],
     bandeiras: 3,
     bombas: 3,
+    exibeResultado: false
   },
   {
     letra: "G",
@@ -75,6 +81,7 @@ const serie = [
     ],
     bandeiras: 4,
     bombas: 2,
+    exibeResultado: false
   },
   {
     letra: "H",
@@ -86,6 +93,7 @@ const serie = [
     ],
     bandeiras: 3,
     bombas: 3,
+    exibeResultado: false
   },
   {
     letra: "I",
@@ -97,6 +105,7 @@ const serie = [
     ],
     bandeiras: 2,
     bombas: 4,
+    exibeResultado: false
   },
   {
     letra: "J",
@@ -108,6 +117,7 @@ const serie = [
     ],
     bandeiras: 3,
     bombas: 3,
+    exibeResultado: false
   },
 ];
 

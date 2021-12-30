@@ -1,53 +1,205 @@
-html {
-  height: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background-image: url("../image/background/background_um_campo_em_tela.png");
-  /*width: 800px;*/ /*any size*/
-  /*height: 600px;*/ /*any size*/
-  text-align: center;
-  font-family: "Berlin Sans FB Demi", sans-serif;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  font-family: "Lato", sans-serif;
+  color: #333;
+  line-height: 1.6;
 }
 
-h1 {
-  font-family: "Berlin Sans FB Demi", sans-serif;
-  color: #ffffff;
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+img {
+  width: 100%;
+}
+
+.game {
+  width: auto;
+  height: auto;
+}
+
+/* .navbar {
+  background-color: #047aed;
+  color: #fff;
+  height: 70px;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.navbar a:hover {
+  border-bottom: 2px #fff solid;
+}
+
+.navbar .flex {
+  justify-content: space-between;
+} */
+
+/* .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+} */ 
+
+/*A partir daqui: */
+.img_dicas {
+  width: 40px;
+}
+
+.resultados-box {
+}
+
+.navbar {
+  background-color: #d4ce82;
+  color: #fff;
+  height: 70px;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.navbar a:hover {
+  border-bottom: 2px #fff solid;
+}
+
+.navbar .flex {
+  justify-content: space-between;
+}
+
+.scores {
+  background-color: #b9b369;
+  color: #343434;
+  height: 80px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 40px;
+}
+
+.float-container {
+  background-image: url("../image/background/Back_camp_1.png");
+  background-color: #d4ce82;
+  background-repeat: no-repeat;
+  padding: 0 40px;
+  margin-right: 50px;
+  width: 100%;
+  height: 500px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+span {
+  text-align: center;
+  font-weight: 50;
+  font-weight: bolder;
+}
+
+input {
+  background-color: #d4ce82;
+  border: 0px;
+  width: 120px;
+  height: 40px;
+  border-radius: 15px;
+}
+
+#cristais {
+  margin: 0px 5px;
+  width: 160px;
+  text-align: center;
+  background-color: #d4ce82;
+  border-radius: 15px;
+}
+
+#vidas {
+  margin: 0px 25px;
+  width: 160px;
+  text-align: center;
+  background-color: #d4ce82;
+  border-radius: 15px;
+}
+
+.item_score {
+  padding: 10px;
+  margin: 0px 30px;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+/*FIM AQUI*/
+
+.img_resultado {
+  height: auto;
+  width: auto;
+  max-width: 70px;
+  max-height: 80px;
+  border-radius: 50%;
+}
+
+/*para letras*/
+.espaco_letras {
+  margin: 10px 12px 0px 12px;
 }
 
 #caixa_campo {
-  border-radius: 25px;
-  background: #69b969;
+  border-radius: 40px;
   padding: 20px;
   width: 100px;
   height: 175px;
-  margin-left: 525px;
-  margin-top: 75px;
+  margin-left: 380px;
+  margin-top: 100px;
   display: table;
   object-fit: cover;
-}
-
-#opcao {
-  background-image: url(../img/a.png);
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  margin: 4px 2px 4px 2px;
-  -moz-border-radius: 1em;
-  display: table-cell;
 }
 
 #caixa_linha {
@@ -58,95 +210,44 @@ h1 {
   table-layout: fixed;
 }
 
-#caixa_bombas_bandeiras {
+.letra {
+  width: 60px;
+  flex: 1;
+  padding: 1px;
+  height:max-content;
+}
+/*fim para letras */
+
+
+/*Opcao (style)*/
+.img_botao {
+  height: auto;
+  width: auto;
+  max-width: 70px;
+  max-height: 80px;
+  border-radius: 80%;
+}
+
+#opcao {
+  width: 20px;
+  height: 15px;
+  margin: 3px 1px 3px 2px;
+  display: table-cell;
+}
+/*Fim Opcao (Style)*/
+
+button {
+  background-color: #87A83D;
+  border: none;
+  cursor: pointer;
+}
+
+/*Letra resultado*/
+/* #caixa_bombas_bandeiras {
   text-align: center;
   width: 100px;
   height: 80px;
   margin-left: 525px;
   margin-top: 5px;
-}
-
-.img_dicas_bandeiras_bombas {
-  width: 180px;
-  height: 100px;
-}
-
-.img_botao {
-  height: auto;
-  height: auto;
-  width: auto;
-  max-width: 50px;
-  max-height: 50px;
-  border-radius: 100%;
-}
-
-.img_dicas {
-  height: auto;
-  width: auto;
-  padding: 5px 0px 0px 5px;
-  max-width: 40px;
-  max-height: 40px;
-}
-
-.float-container {
-  display: flex;
-  width: 820px;
-  height: 120px;
-}
-
-.letra {
-  width: 60px;
-  flex: 1;
-  padding: 1px;
-}
-
-input[type="text"] {
-  border-radius: 10px;
-  background: #8d4700;
-  color: white;
-  padding: 15px;
-  width: 30px;
-  height: 15px;
-  margin: 0 auto;
-}
-
-.resultados-box {
-  display: flex;
-}
-
-.resultados-box > div {
-  flex: 1;
-}
-
-div {
-  font-family: "Berlin Sans FB Demi", sans-serif;
-  color: #343434;
-  size: 32px;
-}
-
-button {
-  width: 60px;
-  height: 60px;
-  border: none;
-  margin: 4px 2px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 100%;
-}
-
-.icon {
-  margin: 0px;
-  padding: 0px;
-}
-
-.letra_serie {
-  margin: 0px;
-  padding: 0px;
-  width: 10px;
-  height: 10px;
-}
-
-.espaco_letras {
-  margin: 10px 12px 0px 12px;
-}
+} */
+/*fim letra resultado */

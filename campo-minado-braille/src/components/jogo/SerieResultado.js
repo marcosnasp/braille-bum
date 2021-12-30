@@ -4,12 +4,12 @@ import Timer from "../temporizador/Timer";
 function SerieResultado(props) {
   const images_cristais = {
     cristal_um: "image/cristal_azul.png",
-    cristal_dois: "image/cristal_rosa.jpg",
-    cristal_tres: "image/cristal_verde.jpg",
+    cristal_dois: "image/cristal_rosa.png",
+    cristal_tres: "image/cristal_verde.png",
   };
 
   const images_vidas = {
-      vida_ativa: "image/coracao_ativo.jpg",
+      vida_ativa: "image/vida_preenchida.png",
       vida_desativada: "image/coracao_desativado.jpg"
   };
   
@@ -23,29 +23,51 @@ function SerieResultado(props) {
   const class_name_icones = "img_dicas";
 
   return (
-    <div className="resultados-box">
-      <div>
-        <p>Cristais</p>
-        <img src={images_cristais.cristal_um} alt="Cristal Um" className={class_name_icones} />
-        <img src={images_cristais.cristal_dois} alt="Cristal Dois" className={class_name_icones} />
-        <img src={images_cristais.cristal_tres} alt="Cristal Três" className={class_name_icones} />
-      </div>
-      <div>
-          <p>Pontos</p>
-          <input type="text" value={props.pontos} />
-      </div>
-      <div>
-          Progresso
-      </div>
-      <div>
-          <p>Vidas</p>
-          <img src={images_vidas.vida_ativa} alt="Vida Ativa" className={class_name_icones} />
-          <img src={images_vidas.vida_ativa} alt="Vida Ativa" className={class_name_icones} />
-          <img src={images_vidas.vida_ativa} alt="Vida Ativa" className={class_name_icones} />
-      </div>
-      <div>
-          <p>Tempo</p>
-          <Timer />
+    <div className="scores">
+      <div className="container flex">
+        <div className="item_score">
+          <span>Cristais</span>
+          <div id="cristais">
+            <span>
+              <img src={images_cristais.cristal_um} alt="Cristal Um" />
+              <img src={images_cristais.cristal_dois} alt="Cristal Dois" />
+              <img src={images_cristais.cristal_tres} alt="Cristal Três" />
+            </span>
+          </div>
+        </div>
+        
+        <div className="item_score">
+          <span>Pontos</span>
+          <div>
+            <input type="text" />
+          </div>
+        </div>
+
+        <div className="item_score">
+          <span>Progresso</span>
+          <div>
+            <input type="text" />
+          </div>
+        </div>
+
+        <div className="item_score">
+          <span>Vidas</span>
+          <div id="vidas">
+            <span>
+              <img src={images_vidas.vida_ativa} alt="Vida Ativa" />
+              <img src={images_vidas.vida_ativa} alt="Vida Ativa" />
+              <img src={images_vidas.vida_ativa} alt="Vida Ativa" />
+            </span>
+          </div>
+        </div>
+
+        <div className="item_score">
+          <span>Tempo</span>
+          <div>
+            {/* <input type="text" /> */}
+            <Timer />
+          </div>
+        </div>
       </div>
     </div>
   );

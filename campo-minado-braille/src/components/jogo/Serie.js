@@ -11,9 +11,11 @@ function Serie(props) {
   return (
     <div>
       <SerieResultado cristais={cristais} pontos={pontos} progresso={progresso} vidas={vidas} />
-      <div className="float-container">
-        <div className="letra">
-          <Letra letra={props.config[0]} />
+      <div className="game">
+        <div className="float-container">
+          <div className="letra">
+            <Letra letra={props.config[0]} exibeResultado={props.config[0].exibeResultado} />
+          </div>
         </div>
       </div>
     </div>
