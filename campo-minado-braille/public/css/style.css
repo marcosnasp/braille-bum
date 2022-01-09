@@ -115,11 +115,11 @@ img {
   max-width: 1100px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0 40px;
+  padding: 0 10px;
 }
 
 .float-container {
-  background-image: url("../image/background/Back_camp_1.png");
+  background-image: url("../image/background/Background_ajuste_tela_v2.png");
   background-color: #d4ce82;
   background-repeat: no-repeat;
   padding: 0 40px;
@@ -140,13 +140,15 @@ span {
   text-align: center;
   font-weight: 50;
   font-weight: bolder;
+  margin: 0px 0px 0px 5px;
 }
 
 input {
   background-color: #d4ce82;
   border: 0px;
-  width: 120px;
-  height: 40px;
+  width: 160px;
+  height: 46px;
+  text-align: center;
   border-radius: 15px;
 }
 
@@ -159,7 +161,7 @@ input {
 }
 
 #vidas {
-  margin: 0px 25px;
+  margin: 0px 5px;
   width: 160px;
   text-align: center;
   background-color: #d4ce82;
@@ -168,7 +170,7 @@ input {
 
 .item_score {
   padding: 10px;
-  margin: 0px 30px;
+  margin: 0px 20px;
 }
 
 img {
@@ -196,8 +198,8 @@ img {
   padding: 20px;
   width: 100px;
   height: 175px;
-  margin-left: 380px;
-  margin-top: 100px;
+  margin-left: 350px;
+  margin-top: 90px;
   display: table;
   object-fit: cover;
 }
@@ -237,7 +239,7 @@ img {
 /*Fim Opcao (Style)*/
 
 button {
-  background-color: #87A83D;
+  background-color: #78AA2E;
   border: none;
   cursor: pointer;
 }
@@ -251,3 +253,12 @@ button {
   margin-top: 5px;
 } */
 /*fim letra resultado */
+
+.lanterna {
+  background-color: #d4ce82;
+}
+
+.logo {
+  width: 130px;
+  height: 40px;
+}

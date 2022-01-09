@@ -2,11 +2,15 @@ const serie = [
   {
     letra: "A",
     imagem_dicas: "image/bandeiras/a.png",
-    posicao: [
-      [true, false],
-      [false, false],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_a.png",
+    posicao: {
+      1: true,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+      6: false
+    },
     bandeiras: 1,
     bombas: 5,
     exibeResultado: false
@@ -14,11 +18,15 @@ const serie = [
   {
     letra: "B",
     imagem_dicas: "image/bandeiras/b.png",
-    posicao: [
-      [true, false],
-      [true, false],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_b.png",
+    posicao: {
+      1: true,
+      2: true,
+      3: false,
+      4: false,
+      5: false,
+      6: false
+    },
     bandeiras: 2,
     bombas: 4,
     exibeResultado: false
@@ -26,11 +34,16 @@ const serie = [
   {
     letra: "C",
     imagem_dicas: "image/bandeiras/c.png",
-    posicao: [
-      [true, true],
-      [false, false],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_c.png",
+    posicao: 
+    {
+      1: true,
+      2: false,
+      3: false,
+      4: true,
+      5: false,
+      6: false
+    },
     bandeiras: 2,
     bombas: 4,
     exibeResultado: false
@@ -38,11 +51,15 @@ const serie = [
   {
     letra: "D",
     imagem_dicas: "image/bandeiras/d.png",
-    posicao: [
-      [true, true],
-      [false, true],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_d.png",
+    posicao: {
+      1: true,
+      2: false,
+      3: false,
+      4: true,
+      5: true,
+      6: false
+    },
     bandeiras: 3,
     bombas: 3,
     exibeResultado: false
@@ -50,11 +67,15 @@ const serie = [
   {
     letra: "E",
     imagem_dicas: "image/bandeiras/e.png",
-    posicao: [
-      [true, false],
-      [false, true],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_e.png",
+    posicao: {
+      1: true,
+      2: false,
+      3: false,
+      4: false,
+      5: true,
+      6: false
+    },
     bandeiras: 2,
     bombas: 4,
     exibeResultado: false
@@ -62,11 +83,15 @@ const serie = [
   {
     letra: "F",
     imagem_dicas: "image/bandeiras/f.png",
-    posicao: [
-      [true, true],
-      [true, false],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_f.png",
+    posicao: {
+      1: true,
+      2: true,
+      3: false,
+      4: true,
+      5: false,
+      6: false
+    },
     bandeiras: 3,
     bombas: 3,
     exibeResultado: false
@@ -74,11 +99,15 @@ const serie = [
   {
     letra: "G",
     imagem_dicas: "image/bandeiras/g.png",
-    posicao: [
-      [true, true],
-      [true, true],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_g.png",
+    posicao: {
+      1: true,
+      2: true,
+      3: false,
+      4: true,
+      5: true,
+      6: false
+    },
     bandeiras: 4,
     bombas: 2,
     exibeResultado: false
@@ -86,11 +115,15 @@ const serie = [
   {
     letra: "H",
     imagem_dicas: "image/bandeiras/h.png",
-    posicao: [
-      [true, false],
-      [true, true],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_h.png",
+    posicao: {
+      1: true,
+      2: true,
+      3: false,
+      4: false,
+      5: true,
+      6: false
+    },
     bandeiras: 3,
     bombas: 3,
     exibeResultado: false
@@ -98,11 +131,15 @@ const serie = [
   {
     letra: "I",
     imagem_dicas: "image/bandeiras/i.png",
-    posicao: [
-      [false, true],
-      [true, false],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_i.png",
+    posicao: {
+      1: false,
+      2: true,
+      3: false,
+      4: true,
+      5: false,
+      6: false
+    },
     bandeiras: 2,
     bombas: 4,
     exibeResultado: false
@@ -110,11 +147,15 @@ const serie = [
   {
     letra: "J",
     imagem_dicas: "image/bandeiras/j.png",
-    posicao: [
-      [false, true],
-      [true, true],
-      [false, false],
-    ],
+    imagem_resultado: "image/letras/letra_j.png",
+    posicao: {
+      1: false,
+      2: true,
+      3: false,
+      4: true,
+      5: true,
+      6: false
+    },
     bandeiras: 3,
     bombas: 3,
     exibeResultado: false

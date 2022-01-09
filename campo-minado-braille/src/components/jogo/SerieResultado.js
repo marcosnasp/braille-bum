@@ -9,10 +9,10 @@ function SerieResultado(props) {
   };
 
   const images_vidas = {
-      vida_ativa: "image/vida_preenchida.png",
-      vida_desativada: "image/coracao_desativado.jpg"
+    vida_ativa: "image/vida_preenchida.png",
+    vida_desativada: "image/coracao_desativado.jpg",
   };
-  
+
   console.log(props.cristais);
   console.log(props.vidas);
   console.log(props.pontos);
@@ -35,18 +35,18 @@ function SerieResultado(props) {
             </span>
           </div>
         </div>
-        
+
         <div className="item_score">
           <span>Pontos</span>
           <div>
-            <input type="text" />
+            <input type="text" value={props.pontos} />
           </div>
         </div>
 
         <div className="item_score">
           <span>Progresso</span>
           <div>
-            <input type="text" />
+            <input type="text" value={props.progresso} />
           </div>
         </div>
 
