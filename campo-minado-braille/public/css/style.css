@@ -70,7 +70,7 @@ img {
   margin: 0 auto;
   overflow: auto;
   padding: 0 40px;
-} */ 
+} */
 
 /*A partir daqui: */
 .img_dicas {
@@ -104,6 +104,33 @@ img {
   justify-content: space-between;
 }
 
+/** Menu **/
+.navbar-menu {
+  background-color: #95bb45;
+  color: #fff;
+  height: 70px;
+}
+
+.navbar-menu ul {
+  display: flex;
+}
+
+.navbar-menu a {
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.navbar-menu a:hover {
+  border-bottom: 2px #fff solid;
+}
+
+.navbar-menu .flex {
+  justify-content: space-between;
+}
+
+/**Menu**/
+
 .scores {
   background-color: #b9b369;
   color: #343434;
@@ -119,7 +146,7 @@ img {
 }
 
 .float-container {
-  background-image: url("../image/background/Background_ajuste_tela_v2.png");
+  /**background-image: url("../image/background/Background_02.png");**/
   background-color: #d4ce82;
   background-repeat: no-repeat;
   padding: 0 40px;
@@ -127,6 +154,66 @@ img {
   width: 100%;
   height: 500px;
 }
+
+.background-inicial {
+  background-image: url("../image/background/Background_02.png");
+}
+
+.background-erro {
+  background-image: url("../image/background/Background_03.png");
+}
+
+.background-acerto {
+  background-image: url("../image/background/Background_01.png");
+}
+
+/**float-container-menu**/
+.container-menu {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+.float-container-menu {
+  background-color: #95bb45;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100px;
+}
+
+.float-container-menu::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.caixa-imagem-fundo-menu {
+  background-color: #95bb45;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 439px;
+}
+
+.opcao-menu {
+  float: left;
+  width: 274px;
+  height: 91px;
+  margin: 0px 2px 0px 20px;
+}
+
+.img-fundo {
+  width: 780px;
+  height: 439px;
+  margin: 0px 200px 0px 200px;
+}
+
+.img-menu {
+  width: 274px;
+  height: 91px;
+  margin: 0px 200px 0px 200px;
+}
+/**float-container-menu**/
 
 .flex {
   display: flex;
@@ -188,6 +275,19 @@ img {
   border-radius: 50%;
 }
 
+.img-braillinho {
+  width: 100px;
+  height: 175px;
+  margin-left: 20px;
+}
+
+.img-check {
+  width: 50px;
+  height: 50px;
+  margin-top: 27px;
+  margin-left: 22px;
+}
+
 /*para letras*/
 .espaco_letras {
   margin: 10px 12px 0px 12px;
@@ -216,10 +316,9 @@ img {
   width: 60px;
   flex: 1;
   padding: 1px;
-  height:max-content;
+  height: max-content;
 }
 /*fim para letras */
-
 
 /*Opcao (style)*/
 .img_botao {
@@ -239,7 +338,7 @@ img {
 /*Fim Opcao (Style)*/
 
 button {
-  background-color: #78AA2E;
+  background-color: #78aa2e;
   border: none;
   cursor: pointer;
 }

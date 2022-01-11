@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 function Opcao(props) {
-  const [image, setImage] = useState("");
 
   return (
     <div id="opcao">
