@@ -20,7 +20,10 @@ function Letra(props) {
   let [exibeBraillinho, setExibeBraillinho] = useState(false);
 
   const imagem_braillinho = "image/turminha/braillinho/12.png";
+
   const background_inicial_class = "float-container background-inicial";
+  const background_acerto = "float-container background-acerto";
+  const background_erro = "float-container background-erro";
 
   const [background, setBackground] = useState(
     "float-container background-inicial"
@@ -72,7 +75,7 @@ function Letra(props) {
         setCheckErro(false);
         setExibeBraillinho(true);
         console.log(props);
-        setBackground("float-container background-acerto");
+        setBackground(background_acerto);
       } else {
         console.log("Você Errou, clicando na posição: %d", pos);
         console.log(props.letra);
@@ -84,6 +87,7 @@ function Letra(props) {
         setBotaoSeis(bomba);
         setCheckAcerto(false);
         setCheckErro(true);
+        setBackground(background_erro);
       }
     }
   }
