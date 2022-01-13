@@ -31,7 +31,7 @@ function SerieResultado(props) {
             <span>
               <img src={images_cristais.cristal_um} alt="Cristal Um" />
               <img src={images_cristais.cristal_dois} alt="Cristal Dois" />
-              <img src={images_cristais.cristal_tres} alt="Cristal Três" />
+              <img src={images_cristais.cristal_tres} alt="Cristal Tres" />
             </span>
           </div>
         </div>
