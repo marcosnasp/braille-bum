@@ -1,1 +1,1 @@
-web: cd campo-minado-braille && npm start
+web: npm --prefix ./campo-minado-braille run build
