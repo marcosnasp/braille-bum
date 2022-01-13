@@ -1,0 +1,1 @@
+web: cd campo-minado-braille && npm start
