@@ -29,6 +29,8 @@ function Letra(props) {
     "float-container background-inicial"
   );
 
+  const [classButton, setClassButton] = useState("button_game");
+
   function inicializar() {
     setBotaoUm(label_buttons.botao_1);
     setBotaoDois(label_buttons.botao_2);
@@ -54,6 +56,7 @@ function Letra(props) {
   const texto_alt = "Botão";
   const imagem_correto = "image/acerto_peq.png";
   const imagem_erro = "image/erro.png";
+  const image_fogo_erro = "image/botoes/fogo_sem_numero.png";
 
   console.log(props.letra);
 
@@ -76,18 +79,20 @@ function Letra(props) {
         setExibeBraillinho(true);
         console.log(props);
         setBackground(background_acerto);
+        setClassButton("button_game");
       } else {
         console.log("Você Errou, clicando na posição: %d", pos);
         console.log(props.letra);
-        setBotaoUm(bomba);
-        setBotaoDois(bomba);
-        setBotaoTres(bomba);
-        setBotaoQuatro(bomba);
-        setBotaoCinco(bomba);
-        setBotaoSeis(bomba);
+        setBotaoUm(image_fogo_erro);
+        setBotaoDois(image_fogo_erro);
+        setBotaoTres(image_fogo_erro);
+        setBotaoQuatro(image_fogo_erro);
+        setBotaoCinco(image_fogo_erro);
+        setBotaoSeis(image_fogo_erro);
         setCheckAcerto(false);
         setCheckErro(true);
         setBackground(background_erro);
+        setClassButton("button_game_erro");
       }
     }
   }
@@ -109,11 +114,13 @@ function Letra(props) {
             <div id="caixa_linha">
               <Opcao
                 image={botaoUm}
+                classButton={classButton}
                 alt={texto_alt}
                 onClick={() => handleClick(props.letra, 1)}
               />
               <Opcao
                 image={botaoQuatro}
+                classButton={classButton}
                 alt={texto_alt}
                 onClick={() => handleClick(props.letra, 4)}
               />
@@ -121,11 +128,13 @@ function Letra(props) {
             <div id="caixa_linha">
               <Opcao
                 image={botaoDois}
+                classButton={classButton}
                 alt={texto_alt}
                 onClick={() => handleClick(props.letra, 2)}
               />
               <Opcao
                 image={botaoCinco}
+                classButton={classButton}
                 alt={texto_alt}
                 onClick={() => handleClick(props.letra, 5)}
               />
@@ -133,11 +142,13 @@ function Letra(props) {
             <div id="caixa_linha">
               <Opcao
                 image={botaoTres}
+                classButton={classButton}
                 alt={texto_alt}
                 onClick={() => handleClick(props.letra, 3)}
               />
               <Opcao
                 image={botaoSeis}
+                classButton={classButton}
                 alt={texto_alt}
                 onClick={() => handleClick(props.letra, 6)}
               />

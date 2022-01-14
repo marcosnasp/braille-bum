@@ -112,6 +112,7 @@ img {
   margin: 0 auto;
   overflow: hidden;
   padding: 0 10px;
+  width: 100%;
 }
 
 .float-container {
@@ -318,10 +319,21 @@ img {
 /*Fim Opcao (Style)*/
 
 button {
+  
+}
+
+.button_game {
   background-color: #78aa2e;
   border: none;
   cursor: pointer;
 }
+
+.button_game_erro {
+  background-color: #E82116;
+  border: none;
+  cursor: pointer;
+}
+
 
 /*Letra resultado*/
 /* #caixa_bombas_bandeiras {
