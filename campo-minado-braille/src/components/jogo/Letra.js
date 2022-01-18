@@ -4,6 +4,7 @@ import LetraResultado from "./Letra";
 import LetraImagem from "./LetraImagem";
 import Opcao from "./Opcao";
 import Status from "./Status";
+import ProximaLetra from "./ProximaLetra";
 
 function Letra(props) {
   let [exibeResultado, setExibeResultado] = useState(false);
@@ -57,8 +58,17 @@ function Letra(props) {
   const imagem_correto = "image/acerto_peq.png";
   const imagem_erro = "image/erro.png";
   const image_fogo_erro = "image/botoes/fogo_sem_numero.png";
+  const image_proxima_letra = "image/botoes/botao_proximo.png";
 
   console.log(props.letra);
+
+  function alterarPontuacao() {
+    props.alterarPontuacao();
+  }
+
+  function removerVida() {
+    props.removerVida();
+  }
 
   function handleClick(props, pos) {
     if (props.letra === "A") {
@@ -80,6 +90,9 @@ function Letra(props) {
         console.log(props);
         setBackground(background_acerto);
         setClassButton("button_game");
+        console.log(props);
+        console.log(alterarPontuacao);
+        alterarPontuacao();
       } else {
         console.log("Você Errou, clicando na posição: %d", pos);
         console.log(props.letra);
@@ -93,6 +106,7 @@ function Letra(props) {
         setCheckErro(true);
         setBackground(background_erro);
         setClassButton("button_game_erro");
+        removerVida();
       }
     }
   }
@@ -108,6 +122,11 @@ function Letra(props) {
 
   return (
     <div className={background}>
+      <div className="placa">
+        <div id="placa-bomba">1</div>
+        <div id="placa-letra">a</div>
+        <div id="placa-bandeira">3</div>
+      </div>
       <div className="letra">
         <div className="espaco_letras">
           <div id="caixa_campo">
@@ -153,8 +172,28 @@ function Letra(props) {
                 onClick={() => handleClick(props.letra, 6)}
               />
             </div>
-            {checkAcerto ? <Status imageSrc={imagem_correto} /> : ""}
-            {checkErro ? <Status imageSrc={imagem_erro} /> : ""}
+            {true ? (
+              <div className="img-check">
+                <div>
+                  <Status imageSrc={imagem_correto} /> 
+                </div>
+                <div>
+                  <ProximaLetra imageSrc={image_proxima_letra} />
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            {checkErro ? (
+              <div className="img-check">
+                <Status imageSrc={imagem_erro} />
+                <ProximaLetra imageSrc={image_proxima_letra} />
+              </div>
+            ) : (
+              ""
+            )}
+            
+
             {/* {exibeBraillinho ? <Braillinho imageSrc={imagem_braillinho} /> : "" } */}
             {/* {checkAcertou(props)} */}
           </div>

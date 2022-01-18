@@ -1,16 +1,20 @@
 import React from "react";
 import Timer from "../temporizador/Timer";
+import Vida from "./Vida";
 
 function SerieResultado(props) {
+
   const images_cristais = {
     cristal_um: "image/cristal_azul.png",
     cristal_dois: "image/cristal_rosa.png",
     cristal_tres: "image/cristal_verde.png",
+    cristal_desativado: "image/cristal_desativado.png",
+    cristal_inativo: "image/cristal_inativo.png"
   };
 
   const images_vidas = {
     vida_ativa: "image/vida_preenchida.png",
-    vida_desativada: "image/coracao_desativado.jpg",
+    vida_desativada: "image/vida_perdida.png",
   };
 
   console.log(props.cristais);
@@ -29,9 +33,9 @@ function SerieResultado(props) {
           <span>Cristais</span>
           <div id="cristais">
             <span>
-              <img src={images_cristais.cristal_um} alt="Cristal Um" />
-              <img src={images_cristais.cristal_dois} alt="Cristal Dois" />
-              <img src={images_cristais.cristal_tres} alt="Cristal Tres" />
+              <img src={images_cristais.cristal_inativo} alt="Cristal Um" />
+              <img src={images_cristais.cristal_inativo} alt="Cristal Dois" />
+              <img src={images_cristais.cristal_inativo} alt="Cristal Tres" />
             </span>
           </div>
         </div>
@@ -54,9 +58,9 @@ function SerieResultado(props) {
           <span>Vidas</span>
           <div id="vidas">
             <span>
-              <img src={images_vidas.vida_ativa} alt="Vida Ativa" />
-              <img src={images_vidas.vida_ativa} alt="Vida Ativa" />
-              <img src={images_vidas.vida_ativa} alt="Vida Ativa" />
+              {props.vidas[0] ? <Vida imageSrc={images_vidas.vida_ativa} txtAlt='Vida Ativa' /> : <Vida imageSrc={images_vidas.vida_desativada} txtAlt='Vida Perdida' /> }
+              {props.vidas[1] ? <Vida imageSrc={images_vidas.vida_ativa} txtAlt='Vida Ativa' /> : <Vida imageSrc={images_vidas.vida_desativada} txtAlt='Vida Perdida' /> }
+              {props.vidas[2] ? <Vida imageSrc={images_vidas.vida_ativa} txtAlt='Vida Ativa' /> : <Vida imageSrc={images_vidas.vida_desativada} txtAlt='Vida Perdida' /> }
             </span>
           </div>
         </div>

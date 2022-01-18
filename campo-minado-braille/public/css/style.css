@@ -125,16 +125,16 @@ img {
 }
 
 .background-inicial {
-  background-image: url("../image/background/Background_02.png");
+  background-image: url("../image/background/background_01.png");
 }
 
 .background-erro {
-  background-image: url("../image/background/Background_03.png");
+  background-image: url("../image/background/background_03.png");
   z-index: 1;
 }
 
 .background-acerto {
-  background-image: url("../image/background/Background_01.png");
+  background-image: url("../image/background/background_02.png");
 }
 
 /**float-container-menu**/
@@ -204,12 +204,60 @@ span {
   text-align: center;
   font-weight: 50;
   font-weight: bolder;
+  font-size: 18px;
+  color: black;
+  font-family: cooper black;
   margin: 0px 0px 0px 5px;
+}
+
+.placa {
+  font-size: 25px;
+  width: 120px;
+  font-weight: bolder;
+  padding: 18px 380px 0px 390px;
+  display:flex;
+  flex-direction: row;
+}
+
+#placa-letra {
+  align-items: center;
+  margin: -8px 20px 0px 31px;
+  font-family: cooper black;
+  font-size: 35px;
+  font-weight: bolder;
+  color: black;
+}
+
+#placa-bomba {
+  align-items: center;
+  margin: 0px 10px 0px -14px;
+  font-family: abadi black;
+  font-size: 30px;
+  color: black;
+}
+
+#placa-bandeira {
+  align-items: center;
+  margin: 0px 15px 0px 25px;
+  font-size: 30px;
+  font-family: abadi black;
+  color: black;
+}
+
+.timer {
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: cooper black;
+  color: black;
+  font-family: cooper black;
+  font-weight: 50;
 }
 
 input {
   background-color: #d4ce82;
   border: 0px;
+  font-size: 20px;
+  font-weight: bolder;
   width: 160px;
   height: 46px;
   text-align: center;
@@ -265,6 +313,13 @@ img {
   margin-left: 22px;
 }
 
+.img-botao-proximo {
+  width: 120px;
+  height: 44px;
+  margin-top: 0px;
+  margin-left: 53px;
+}
+
 /*para letras*/
 .espaco_letras {
   margin: 10px 12px 0px 12px;
@@ -275,16 +330,24 @@ img {
   padding: 20px;
   width: 100px;
   height: 175px;
-  margin-left: 350px;
-  margin-top: 90px;
+  margin-left: 340px;
+  margin-top: 38px;
   display: table;
   object-fit: cover;
-  z-index: 0;
 }
 
 #caixa_linha {
   display: table;
-  z-index: 0;
+}
+
+#caixa_linha_2 {
+  padding: 20px 0px 0px 400px;
+}
+
+#opcao_2 {
+  margin: 0px 10px 0px 10px;
+  padding: 0px 20px 10px 20px;
+  display: table-cell;
 }
 
 #caixa_linha > div {
@@ -316,6 +379,9 @@ img {
   margin: 3px 1px 3px 2px;
   display: table-cell;
 }
+
+
+
 /*Fim Opcao (Style)*/
 
 button {
@@ -329,7 +395,7 @@ button {
 }
 
 .button_game_erro {
-  background-color: #E82116;
+  background-color: #C2672F;
   border: none;
   cursor: pointer;
 }

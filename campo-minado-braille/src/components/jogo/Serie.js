@@ -21,6 +21,14 @@ function Serie(props) {
     }
   }
 
+  function alterarPontuacao() {
+    setPontos(pontos + 250);
+  }
+
+  function removerVida() {
+    setVidas([false, true, true]);
+  }
+
   return (
     <div>
       <SerieResultado
@@ -39,6 +47,8 @@ function Serie(props) {
         <Letra
           letra={props.config[0]}
           exibeResultado={props.config[0].exibeResultado}
+          alterarPontuacao={alterarPontuacao}
+          removerVida={removerVida}
         />
       </div>
     </div>

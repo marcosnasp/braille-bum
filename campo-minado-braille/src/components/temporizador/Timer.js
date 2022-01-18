@@ -27,7 +27,7 @@ class Timer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="timer">
         {this.state.hours.toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,

@@ -1,12 +1,7 @@
 import React from "react";
 
 function Status(props) {
-
-  return (
-    <div className="img-check">
-      <img src={props.imageSrc} className="img-check" />
-    </div>
-  );
+  return <img src={props.imageSrc} className="img-check" />;
 }
 
 export default Status;
