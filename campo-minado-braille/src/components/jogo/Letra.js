@@ -6,6 +6,8 @@ import Opcao from "./Opcao";
 import Status from "./Status";
 import ProximaLetra from "./ProximaLetra";
 
+
+// Desativar botões após a conclusão da letra, quer por acerto, quer por erro.
 function Letra(props) {
   let [exibeResultado, setExibeResultado] = useState(false);
 
@@ -29,6 +31,13 @@ function Letra(props) {
 
   const background_acerto_letra_b = "float-container background-acerto-letra-b";
   const background_acerto_letra_c = "float-container background-acerto-letra-c";
+  const background_acerto_letra_d = "float-container background-acerto-letra-d";
+  const background_acerto_letra_e = "float-container background-acerto-letra-e";
+  const background_acerto_letra_f = "float-container background-acerto-letra-f";
+  const background_acerto_letra_g = "float-container background-acerto-letra-g";
+  const background_acerto_letra_h = "float-container background-acerto-letra-h";
+  const background_acerto_letra_i= "float-container background-acerto-letra-i";
+  const background_acerto_letra_j = "float-container background-acerto-letra-j";
 
   const [background, setBackground] = useState(
     "float-container background-inicial"
@@ -83,6 +92,97 @@ function Letra(props) {
     setBotaoCinco(bomba);
     setBotaoSeis(bomba);
     setBackground(background_acerto_letra_c);
+    setCheckAcerto(true);
+    setCheckErro(false);
+    alterarPontuacao(props.pontuacao_acerto);
+  }
+
+  function acertouLetraD(props) {
+    setBotaoUm(bandeira);
+    setBotaoDois(bomba);
+    setBotaoTres(bomba);
+    setBotaoQuatro(bandeira);
+    setBotaoCinco(bandeira);
+    setBotaoSeis(bomba);
+    setBackground(background_acerto_letra_d);
+    setCheckAcerto(true);
+    setCheckErro(false);
+    alterarPontuacao(props.pontuacao_acerto);
+  }
+
+  function acertouLetraE(props) {
+    setBotaoUm(bandeira);
+    setBotaoDois(bomba);
+    setBotaoTres(bomba);
+    setBotaoQuatro(bomba);
+    setBotaoCinco(bandeira);
+    setBotaoSeis(bomba);
+    setBackground(background_acerto_letra_e);
+    setCheckAcerto(true);
+    setCheckErro(false);
+    alterarPontuacao(props.pontuacao_acerto);
+  }
+
+  function acertouLetraF(props) {
+    setBotaoUm(bandeira);
+    setBotaoDois(bandeira);
+    setBotaoTres(bomba);
+    setBotaoQuatro(bandeira);
+    setBotaoCinco(bomba);
+    setBotaoSeis(bomba);
+    setBackground(background_acerto_letra_f);
+    setCheckAcerto(true);
+    setCheckErro(false);
+    alterarPontuacao(props.pontuacao_acerto);
+  }
+
+  function acertouLetraG(props) {
+    setBotaoUm(bandeira);
+    setBotaoDois(bandeira);
+    setBotaoTres(bomba);
+    setBotaoQuatro(bandeira);
+    setBotaoCinco(bandeira);
+    setBotaoSeis(bomba);
+    setBackground(background_acerto_letra_g);
+    setCheckAcerto(true);
+    setCheckErro(false);
+    alterarPontuacao(props.pontuacao_acerto);
+  }
+
+  function acertouLetraH(props) {
+    setBotaoUm(bandeira);
+    setBotaoDois(bandeira);
+    setBotaoTres(bomba);
+    setBotaoQuatro(bomba);
+    setBotaoCinco(bandeira);
+    setBotaoSeis(bomba);
+    setBackground(background_acerto_letra_h);
+    setCheckAcerto(true);
+    setCheckErro(false);
+    alterarPontuacao(props.pontuacao_acerto);
+  }
+
+  function acertouLetraI(props) {
+    setBotaoUm(bomba);
+    setBotaoDois(bandeira);
+    setBotaoTres(bomba);
+    setBotaoQuatro(bandeira);
+    setBotaoCinco(bomba);
+    setBotaoSeis(bomba);
+    setBackground(background_acerto_letra_i);
+    setCheckAcerto(true);
+    setCheckErro(false);
+    alterarPontuacao(props.pontuacao_acerto);
+  }
+
+  function acertouLetraJ(props) {
+    setBotaoUm(bomba);
+    setBotaoDois(bandeira);
+    setBotaoTres(bomba);
+    setBotaoQuatro(bandeira);
+    setBotaoCinco(bandeira);
+    setBotaoSeis(bomba);
+    setBackground(background_acerto_letra_j);
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
@@ -220,6 +320,222 @@ function Letra(props) {
       }
       if (props.posicao[pos] === false && pos === 5) {
         explodirCampo();
+      }
+      if (props.posicao[pos] === false && pos === 6) {
+        explodirCampo();
+      }
+    }
+    if (props.letra === 'd') {
+      console.log("Acertou Letra D");
+      console.log(props.letra);
+      console.log(props.quantidade_verdadeiro);
+      console.log(qtdeVerdadeiro);
+      if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
+        acertouLetraD(props);
+      }
+      if (props.posicao[pos] === true && pos === 1) {
+        setBotaoUm(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 2) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === false && pos === 3) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 4) {
+        console.log("Clicou no 4");
+        setBotaoQuatro(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 5) {
+        setBotaoCinco(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 6) {
+        explodirCampo();
+      }
+    }
+
+    if (props.letra === 'e') {
+      console.log("Acertou Letra E");
+      console.log(props.letra);
+      console.log(props.quantidade_verdadeiro);
+      console.log(qtdeVerdadeiro);
+      if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
+        acertouLetraE(props);
+      }
+      if (props.posicao[pos] === true && pos === 1) {
+        setBotaoUm(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 2) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === false && pos === 3) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === false && pos === 4) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 5) {
+        setBotaoCinco(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 6) {
+        explodirCampo();
+      }
+    }
+
+    if (props.letra === 'f') {
+      console.log("Acertou Letra F");
+      console.log(props.letra);
+      console.log(props.quantidade_verdadeiro);
+      console.log(qtdeVerdadeiro);
+      if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
+        acertouLetraF(props);
+      }
+      if (props.posicao[pos] === true && pos === 1) {
+        setBotaoUm(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 2) {
+        setBotaoDois(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 3) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 4) {
+        setBotaoQuatro(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 5) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === false && pos === 6) {
+        explodirCampo();
+      }
+    }
+
+    if (props.letra === 'g') {
+      console.log("Acertou Letra G");
+      console.log(props.letra);
+      console.log(props.quantidade_verdadeiro);
+      console.log(qtdeVerdadeiro);
+      if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
+        acertouLetraG(props);
+      }
+      if (props.posicao[pos] === true && pos === 1) {
+        setBotaoUm(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 2) {
+        setBotaoDois(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 3) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 4) {
+        setBotaoQuatro(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 5) {
+        setBotaoCinco(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 6) {
+        explodirCampo();
+      }
+    }
+
+    if (props.letra === 'h') {
+      console.log("Acertou Letra H");
+      console.log(props.letra);
+      console.log(props.quantidade_verdadeiro);
+      console.log(qtdeVerdadeiro);
+      if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
+        acertouLetraH(props);
+      }
+      if (props.posicao[pos] === true && pos === 1) {
+        setBotaoUm(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 2) {
+        setBotaoDois(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 3) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === false && pos === 4) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 5) {
+        setBotaoCinco(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 6) {
+        explodirCampo();
+      }
+    }
+
+    if (props.letra === 'i') {
+      console.log("Acertou Letra I");
+      console.log(props.letra);
+      console.log(props.quantidade_verdadeiro);
+      console.log(qtdeVerdadeiro);
+      if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
+        acertouLetraI(props);
+      }
+      if (props.posicao[pos] === false && pos === 1) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 2) {
+        setBotaoDois(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 3) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 4) {
+        setBotaoQuatro(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 5) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === false && pos === 6) {
+        explodirCampo();
+      }
+    }
+
+    if (props.letra === 'j') {
+      console.log("Acertou Letra J");
+      console.log(props.letra);
+      console.log(props.quantidade_verdadeiro);
+      console.log(qtdeVerdadeiro);
+      if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
+        acertouLetraJ(props);
+      }
+      if (props.posicao[pos] === false && pos === 1) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 2) {
+        setBotaoDois(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === false && pos === 3) {
+        explodirCampo();
+      }
+      if (props.posicao[pos] === true && pos === 4) {
+        setBotaoQuatro(bandeira);
+        incrementarVerdadeiro();
+      }
+      if (props.posicao[pos] === true && pos === 5) {
+        setBotaoCinco(bandeira);
+        incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
         explodirCampo();

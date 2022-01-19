@@ -145,6 +145,33 @@ img {
   background-image: url("../image/background/background_c_ok.png");
 }
 
+.background-acerto-letra-d {
+  background-image: url("../image/background/background_d_ok.png");
+}
+
+.background-acerto-letra-e {
+  background-image: url("../image/background/background_e_ok.png");
+}
+
+.background-acerto-letra-f {
+  background-image: url("../image/background/background_f_ok.png");
+}
+
+.background-acerto-letra-g {
+  background-image: url("../image/background/background_g_ok.png");
+}
+
+.background-acerto-letra-h {
+  background-image: url("../image/background/background_h_ok.png");
+}
+.background-acerto-letra-i {
+  background-image: url("../image/background/background_i_ok.png");
+}
+.background-acerto-letra-j {
+  background-image: url("../image/background/background_j_ok.png");
+}
+
+
 /**float-container-menu**/
 .container-menu {
   max-width: 1100px;
