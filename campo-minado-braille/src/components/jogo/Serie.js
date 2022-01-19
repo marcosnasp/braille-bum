@@ -12,6 +12,7 @@ function Serie(props) {
 
   const [exibePlayer, setExibePlayer] = useState(false);
   const img_lanterna = "image/lanterna.png";
+  const [posicaoLetra, setPosicaoLetra] = useState(0);
 
   function exibirPlayer(exibePlayer) {
     if (exibePlayer) {
@@ -21,12 +22,16 @@ function Serie(props) {
     }
   }
 
-  function alterarPontuacao() {
-    setPontos(pontos + 250);
+  function alterarPontuacao(pontuacao) {
+    setPontos(pontos + pontuacao);
   }
 
   function removerVida() {
     setVidas([false, true, true]);
+  }
+
+  function proximaLetra() {
+    setPosicaoLetra(posicaoLetra + 1);
   }
 
   return (
@@ -45,10 +50,11 @@ function Serie(props) {
         </div>
         {exibePlayer ? <VideoAjuda /> : ""}
         <Letra
-          letra={props.config[0]}
-          exibeResultado={props.config[0].exibeResultado}
+          letra={props.config[posicaoLetra]}
+          exibeResultado={props.config[posicaoLetra].exibeResultado}
           alterarPontuacao={alterarPontuacao}
           removerVida={removerVida}
+          proximaLetra={proximaLetra}
         />
       </div>
     </div>

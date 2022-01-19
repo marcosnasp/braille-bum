@@ -1,6 +1,6 @@
 const serie = [
   {
-    letra: "A",
+    letra: "a",
     imagem_dicas: "image/bandeiras/a.png",
     imagem_resultado: "image/letras/letra_a.png",
     posicao: {
@@ -13,10 +13,12 @@ const serie = [
     },
     bandeiras: 1,
     bombas: 5,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 250,
+    quantidade_verdadeiro: 1
   },
   {
-    letra: "B",
+    letra: "b",
     imagem_dicas: "image/bandeiras/b.png",
     imagem_resultado: "image/letras/letra_b.png",
     posicao: {
@@ -29,10 +31,12 @@ const serie = [
     },
     bandeiras: 2,
     bombas: 4,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 200,
+    quantidade_verdadeiro: 2
   },
   {
-    letra: "C",
+    letra: "c",
     imagem_dicas: "image/bandeiras/c.png",
     imagem_resultado: "image/letras/letra_c.png",
     posicao: 
@@ -46,10 +50,12 @@ const serie = [
     },
     bandeiras: 2,
     bombas: 4,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 200,
+    quantidade_verdadeiro: 2
   },
   {
-    letra: "D",
+    letra: "d",
     imagem_dicas: "image/bandeiras/d.png",
     imagem_resultado: "image/letras/letra_d.png",
     posicao: {
@@ -62,10 +68,12 @@ const serie = [
     },
     bandeiras: 3,
     bombas: 3,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 150,
+    quantidade_verdadeiro: 3
   },
   {
-    letra: "E",
+    letra: "e",
     imagem_dicas: "image/bandeiras/e.png",
     imagem_resultado: "image/letras/letra_e.png",
     posicao: {
@@ -78,10 +86,12 @@ const serie = [
     },
     bandeiras: 2,
     bombas: 4,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 200,
+    quantidade_verdadeiro: 2
   },
   {
-    letra: "F",
+    letra: "f",
     imagem_dicas: "image/bandeiras/f.png",
     imagem_resultado: "image/letras/letra_f.png",
     posicao: {
@@ -94,10 +104,12 @@ const serie = [
     },
     bandeiras: 3,
     bombas: 3,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 150,
+    quantidade_verdadeiro: 3
   },
   {
-    letra: "G",
+    letra: "g",
     imagem_dicas: "image/bandeiras/g.png",
     imagem_resultado: "image/letras/letra_g.png",
     posicao: {
@@ -110,10 +122,12 @@ const serie = [
     },
     bandeiras: 4,
     bombas: 2,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 100,
+    quantidade_verdadeiro: 4
   },
   {
-    letra: "H",
+    letra: "h",
     imagem_dicas: "image/bandeiras/h.png",
     imagem_resultado: "image/letras/letra_h.png",
     posicao: {
@@ -126,10 +140,12 @@ const serie = [
     },
     bandeiras: 3,
     bombas: 3,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 150,
+    quantidade_verdadeiro: 3
   },
   {
-    letra: "I",
+    letra: "i",
     imagem_dicas: "image/bandeiras/i.png",
     imagem_resultado: "image/letras/letra_i.png",
     posicao: {
@@ -142,10 +158,12 @@ const serie = [
     },
     bandeiras: 2,
     bombas: 4,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 200,
+    quantidade_verdadeiro: 2
   },
   {
-    letra: "J",
+    letra: "j",
     imagem_dicas: "image/bandeiras/j.png",
     imagem_resultado: "image/letras/letra_j.png",
     posicao: {
@@ -158,7 +176,9 @@ const serie = [
     },
     bandeiras: 3,
     bombas: 3,
-    exibeResultado: false
+    exibeResultado: false,
+    pontuacao_acerto: 150,
+    quantidade_verdadeiro: 3
   },
 ];
 

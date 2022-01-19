@@ -68,7 +68,6 @@ function SerieResultado(props) {
         <div className="item_score">
           <span>Tempo</span>
           <div>
-            {/* <input type="text" /> */}
             <Timer />
           </div>
         </div>

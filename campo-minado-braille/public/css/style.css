@@ -137,6 +137,14 @@ img {
   background-image: url("../image/background/background_02.png");
 }
 
+.background-acerto-letra-b {
+  background-image: url("../image/background/background_b_ok.png");
+}
+
+.background-acerto-letra-c {
+  background-image: url("../image/background/background_c_ok.png");
+}
+
 /**float-container-menu**/
 .container-menu {
   max-width: 1100px;
@@ -309,14 +317,16 @@ img {
 .img-check {
   width: 50px;
   height: 50px;
-  margin-top: 27px;
-  margin-left: 22px;
+  margin-top: 26px;
+  margin-left: 21px;
+  display:flex;
+  flex-direction: row;
 }
 
 .img-botao-proximo {
   width: 120px;
   height: 44px;
-  margin-top: 0px;
+  margin-top: 30px;
   margin-left: 53px;
 }
 
