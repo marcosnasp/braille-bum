@@ -15,6 +15,7 @@ const serie = [
     bombas: 5,
     exibeResultado: false,
     pontuacao_acerto: 250,
+    debito_erro:-25,
     quantidade_verdadeiro: 1
   },
   {
@@ -33,6 +34,7 @@ const serie = [
     bombas: 4,
     exibeResultado: false,
     pontuacao_acerto: 200,
+    debito_erro: -50,
     quantidade_verdadeiro: 2
   },
   {
@@ -52,6 +54,7 @@ const serie = [
     bombas: 4,
     exibeResultado: false,
     pontuacao_acerto: 200,
+    debito_erro: -50,
     quantidade_verdadeiro: 2
   },
   {
@@ -70,6 +73,7 @@ const serie = [
     bombas: 3,
     exibeResultado: false,
     pontuacao_acerto: 150,
+    debito_erro: -75,
     quantidade_verdadeiro: 3
   },
   {
@@ -88,6 +92,7 @@ const serie = [
     bombas: 4,
     exibeResultado: false,
     pontuacao_acerto: 200,
+    debito_erro: -50,
     quantidade_verdadeiro: 2
   },
   {
@@ -106,6 +111,7 @@ const serie = [
     bombas: 3,
     exibeResultado: false,
     pontuacao_acerto: 150,
+    debito_erro: -75,
     quantidade_verdadeiro: 3
   },
   {
@@ -124,6 +130,7 @@ const serie = [
     bombas: 2,
     exibeResultado: false,
     pontuacao_acerto: 100,
+    debito_erro: -100,
     quantidade_verdadeiro: 4
   },
   {
@@ -142,6 +149,7 @@ const serie = [
     bombas: 3,
     exibeResultado: false,
     pontuacao_acerto: 150,
+    debito_erro: -75,
     quantidade_verdadeiro: 3
   },
   {
@@ -160,6 +168,7 @@ const serie = [
     bombas: 4,
     exibeResultado: false,
     pontuacao_acerto: 200,
+    debito_erro: -50,
     quantidade_verdadeiro: 2
   },
   {
@@ -178,6 +187,7 @@ const serie = [
     bombas: 3,
     exibeResultado: false,
     pontuacao_acerto: 150,
+    debito_erro: -75,
     quantidade_verdadeiro: 3
   },
 ];

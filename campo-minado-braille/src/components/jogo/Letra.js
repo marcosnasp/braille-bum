@@ -17,6 +17,7 @@ function Letra(props) {
   let [botaoQuatro, setBotaoQuatro] = useState("image/botoes/4_botao.png");
   let [botaoCinco, setBotaoCinco] = useState("image/botoes/5_botao.png");
   let [botaoSeis, setBotaoSeis] = useState("image/botoes/6_botao.png");
+  let [disabled, setDisabled] = useState(false);
 
   let [checkAcerto, setCheckAcerto] = useState(false);
   let [checkErro, setCheckErro] = useState(false);
@@ -55,9 +56,10 @@ function Letra(props) {
     setCheckAcerto(false);
     setCheckErro(false);
     setQtdeVerdadeiro(1);
+    setDisabled(false);
   }
 
-  function explodirCampo() {
+  function explodirCampo(props) {
     setBotaoUm(image_fogo_erro);
     setBotaoDois(image_fogo_erro);
     setBotaoTres(image_fogo_erro);
@@ -69,6 +71,23 @@ function Letra(props) {
     setCheckErro(true);
     setCheckAcerto(false);
     removerVida();
+    setDisabled(true);
+    alterarPontuacao(props.debito_erro);
+  }
+
+  function acertouLetraA(props) {
+    setBotaoUm(bandeira);
+    setBotaoDois(bomba);
+    setBotaoTres(bomba);
+    setBotaoQuatro(bomba);
+    setBotaoCinco(bomba);
+    setBotaoSeis(bomba);
+    setBackground(background_acerto);
+    setClassButton("button_game");
+    setCheckAcerto(true);
+    setCheckErro(false);
+    alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraB(props) {
@@ -82,6 +101,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraC(props) {
@@ -95,6 +115,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraD(props) {
@@ -108,6 +129,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraE(props) {
@@ -121,6 +143,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraF(props) {
@@ -134,6 +157,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraG(props) {
@@ -147,6 +171,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraH(props) {
@@ -160,6 +185,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraI(props) {
@@ -173,6 +199,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   function acertouLetraJ(props) {
@@ -186,6 +213,7 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
+    setDisabled(true);
   }
 
   const label_buttons = {
@@ -225,6 +253,7 @@ function Letra(props) {
   function proximaLetra() {
     console.log("chamou");
     setBackground(background_inicial_class);
+    setClassButton("button_game");
     inicializar();
     props.proximaLetra();
   }
@@ -234,32 +263,20 @@ function Letra(props) {
   }
 
   function handleClick(props, pos) {
+    if (disabled === true) {
+      return;
+    }
     if (props.letra === "a") {
       if (props.posicao[pos] === true) {
         console.log("Acertou");
         console.log(props.letra);
         console.log(pos);
         setExibeResultado(true);
-        setBotaoUm(bandeira);
-        setBotaoDois(bomba);
-        setBotaoTres(bomba);
-        setBotaoQuatro(bomba);
-        setBotaoCinco(bomba);
-        setBotaoSeis(bomba);
-        checkAcertou(props);
-        setCheckAcerto(true);
-        setCheckErro(false);
-        setExibeBraillinho(true);
-        console.log(props);
-        setBackground(background_acerto);
-        setClassButton("button_game");
-        console.log(props);
-        console.log(alterarPontuacao);
-        alterarPontuacao(props.pontuacao_acerto);
+        acertouLetraA(props);
       } else {
         console.log("Você Errou, clicando na posição: %d", pos);
         console.log(props.letra);
-        explodirCampo();
+        explodirCampo(props);
       }
     }
     if (props.letra === 'b') {
@@ -280,16 +297,16 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 4) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 5) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
     // Requisitos...
@@ -301,7 +318,7 @@ function Letra(props) {
       console.log(props.quantidade_verdadeiro);
       console.log(qtdeVerdadeiro);
       if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
-        console.log("chamou acertou letra b");
+        console.log("chamou acertou letra c");
         acertouLetraC(props);
       }
       if (props.posicao[pos] === true && pos === 1) {
@@ -309,22 +326,23 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 2) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 4) {
         setBotaoQuatro(bandeira);
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 5) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
+
     if (props.letra === 'd') {
       console.log("Acertou Letra D");
       console.log(props.letra);
@@ -338,13 +356,12 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 2) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 4) {
-        console.log("Clicou no 4");
         setBotaoQuatro(bandeira);
         incrementarVerdadeiro();
       }
@@ -353,7 +370,7 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
 
@@ -370,20 +387,20 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 2) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 4) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 5) {
         setBotaoCinco(bandeira);
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
 
@@ -404,17 +421,17 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 5) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
 
@@ -435,7 +452,7 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
@@ -446,7 +463,7 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
 
@@ -467,17 +484,17 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 4) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 5) {
         setBotaoCinco(bandeira);
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
 
@@ -490,24 +507,24 @@ function Letra(props) {
         acertouLetraI(props);
       }
       if (props.posicao[pos] === false && pos === 1) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 2) {
         setBotaoDois(bandeira);
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 5) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
 
@@ -520,14 +537,14 @@ function Letra(props) {
         acertouLetraJ(props);
       }
       if (props.posicao[pos] === false && pos === 1) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 2) {
         setBotaoDois(bandeira);
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
-        explodirCampo();
+        explodirCampo(props);
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
@@ -538,7 +555,7 @@ function Letra(props) {
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
-        explodirCampo();
+        explodirCampo(props);
       }
     }
   }
@@ -567,12 +584,14 @@ function Letra(props) {
                 image={botaoUm}
                 classButton={classButton}
                 alt={texto_alt}
+                disabled={disabled}
                 onClick={() => handleClick(props.letra, 1)}
               />
               <Opcao
                 image={botaoQuatro}
                 classButton={classButton}
                 alt={texto_alt}
+                disabled={disabled}
                 onClick={() => handleClick(props.letra, 4)}
               />
             </div>
@@ -581,12 +600,14 @@ function Letra(props) {
                 image={botaoDois}
                 classButton={classButton}
                 alt={texto_alt}
+                disabled={disabled}
                 onClick={() => handleClick(props.letra, 2)}
               />
               <Opcao
                 image={botaoCinco}
                 classButton={classButton}
                 alt={texto_alt}
+                disabled={disabled}
                 onClick={() => handleClick(props.letra, 5)}
               />
             </div>
@@ -595,12 +616,14 @@ function Letra(props) {
                 image={botaoTres}
                 classButton={classButton}
                 alt={texto_alt}
+                disabled={disabled}
                 onClick={() => handleClick(props.letra, 3)}
               />
               <Opcao
                 image={botaoSeis}
                 classButton={classButton}
                 alt={texto_alt}
+                disabled={disabled}
                 onClick={() => handleClick(props.letra, 6)}
               />
             </div>
@@ -620,6 +643,9 @@ function Letra(props) {
               <div className="img-check">
                 <div>
                   <Status imageSrc={imagem_erro} />
+                </div>
+                <div>
+                  <ProximaLetra imageSrc={image_proxima_letra} proximaLetra={() => proximaLetra()} />
                 </div>
               </div>
             ) : (

@@ -1,14 +1,14 @@
 import React from "react";
 import Timer from "../temporizador/Timer";
 import Vida from "./Vida";
+import Cristal from "./Cristal";
 
 function SerieResultado(props) {
 
   const images_cristais = {
-    cristal_um: "image/cristal_azul.png",
-    cristal_dois: "image/cristal_rosa.png",
-    cristal_tres: "image/cristal_verde.png",
-    cristal_desativado: "image/cristal_desativado.png",
+    cristal_azul: "image/cristal_azul.png",
+    cristal_rosa: "image/cristal_rosa.png",
+    cristal_verde: "image/cristal_verde.png",
     cristal_inativo: "image/cristal_inativo.png"
   };
 
@@ -33,9 +33,9 @@ function SerieResultado(props) {
           <span>Cristais</span>
           <div id="cristais">
             <span>
-              <img src={images_cristais.cristal_inativo} alt="Cristal Um" />
-              <img src={images_cristais.cristal_inativo} alt="Cristal Dois" />
-              <img src={images_cristais.cristal_inativo} alt="Cristal Tres" />
+              {props.cristais[0] ? <Cristal imageSrc={images_cristais.cristal_azul} txtAlt='Cristal Azul Ativo' /> : <Cristal imageSrc={images_cristais.cristal_inativo} txtAlt='Cristal Desativado' /> }
+              {props.cristais[1] ? <Cristal imageSrc={images_cristais.cristal_rosa} txtAlt='Cristal Rosa Ativo' /> : <Cristal imageSrc={images_cristais.cristal_inativo} txtAlt='Cristal Desativado' /> }
+              {props.cristais[2] ? <Cristal imageSrc={images_cristais.cristal_verde} txtAlt='Cristal Verde Ativo' /> : <Cristal imageSrc={images_cristais.cristal_inativo} txtAlt='Cristal Desativado' /> }
             </span>
           </div>
         </div>
