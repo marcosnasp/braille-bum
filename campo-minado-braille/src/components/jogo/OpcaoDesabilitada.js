@@ -1,24 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Opcao(props) {
+function OpcaoDesabilitada(props) {
   return (
     <div id="opcao">
       <button
         id="opcao_4"
         type="submit"
         className={props.classButton}
-        disabled={props.disabled}
+        disabled="true"
       >
         <img
           className="img_botao"
           src={props.image}
           alt={props.alt}
-          disabled={props.disabled}
-          onClick={props.onClick}
+          disabled="true"
         />
       </button>
     </div>
   );
 }
 
-export default Opcao;
+export default OpcaoDesabilitada;

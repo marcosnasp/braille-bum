@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import Braillinho from "./Braillinho";
-import LetraResultado from "./Letra";
-import LetraImagem from "./LetraImagem";
 import Opcao from "./Opcao";
 import Status from "./Status";
 import ProximaLetra from "./ProximaLetra";
+import OpcaoDesabilitada from "./OpcaoDesabilitada";
 
-
-// Desativar botões após a conclusão da letra, quer por acerto, quer por erro.
 function Letra(props) {
   let [exibeResultado, setExibeResultado] = useState(false);
 
@@ -17,12 +13,19 @@ function Letra(props) {
   let [botaoQuatro, setBotaoQuatro] = useState("image/botoes/4_botao.png");
   let [botaoCinco, setBotaoCinco] = useState("image/botoes/5_botao.png");
   let [botaoSeis, setBotaoSeis] = useState("image/botoes/6_botao.png");
-  let [disabled, setDisabled] = useState(false);
+
+  let [statusBotaoUm, setStatusBotaoUm] = useState(false);
+  let [statusBotaoDois, setStatusBotaoDois] = useState(false);
+  let [statusBotaoTres, setStatusBotaoTres] = useState(false);
+  let [statusBotaoQuatro, setStatusBotaoQuatro] = useState(false);
+  let [statusBotaoCinco, setStatusBotaoCinco] = useState(false);
+  let [statusBotaoSeis, setStatusBotaoSeis] = useState(false);
 
   let [checkAcerto, setCheckAcerto] = useState(false);
   let [checkErro, setCheckErro] = useState(false);
   let [exibeBraillinho, setExibeBraillinho] = useState(false);
   let [qtdeVerdadeiro, setQtdeVerdadeiro] = useState(1);
+  let [disabled, setDisabled] = useState(false);
 
   const imagem_braillinho = "image/turminha/braillinho/12.png";
 
@@ -37,7 +40,7 @@ function Letra(props) {
   const background_acerto_letra_f = "float-container background-acerto-letra-f";
   const background_acerto_letra_g = "float-container background-acerto-letra-g";
   const background_acerto_letra_h = "float-container background-acerto-letra-h";
-  const background_acerto_letra_i= "float-container background-acerto-letra-i";
+  const background_acerto_letra_i = "float-container background-acerto-letra-i";
   const background_acerto_letra_j = "float-container background-acerto-letra-j";
 
   const [background, setBackground] = useState(
@@ -45,6 +48,36 @@ function Letra(props) {
   );
 
   const [classButton, setClassButton] = useState("button_game");
+
+  const audio_acerto = document.getElementById("acerto_letra");
+  const audio_bomba = document.getElementById("bomba");
+  const audio_cristal = document.getElementById("cristal");
+  const audio_bandeira = document.getElementById("bandeira");
+  const audio_game_over = document.getElementById("game_over");
+  const audio_obter_vida = document.getElementById("obter_vida");
+
+  function desabilitarTodosOsBotoes(statusBotao) {
+    setStatusBotaoUm(statusBotao);
+    setStatusBotaoDois(statusBotao);
+    setStatusBotaoTres(statusBotao);
+    setStatusBotaoQuatro(statusBotao);
+    setStatusBotaoCinco(statusBotao);
+    setStatusBotaoSeis(statusBotao);
+  }
+
+  function checkDisabled() {
+    if (
+      statusBotaoUm &&
+      statusBotaoDois &&
+      statusBotaoTres &&
+      statusBotaoQuatro &&
+      statusBotaoCinco &&
+      statusBotaoSeis
+    ) {
+      return true;
+    }
+    return false;
+  }
 
   function inicializar() {
     setBotaoUm(label_buttons.botao_1);
@@ -56,10 +89,10 @@ function Letra(props) {
     setCheckAcerto(false);
     setCheckErro(false);
     setQtdeVerdadeiro(1);
-    setDisabled(false);
+    desabilitarTodosOsBotoes(false);
   }
 
-  function explodirCampo(props) {
+  function explodirCampo(props, posicao) {
     setBotaoUm(image_fogo_erro);
     setBotaoDois(image_fogo_erro);
     setBotaoTres(image_fogo_erro);
@@ -71,8 +104,9 @@ function Letra(props) {
     setCheckErro(true);
     setCheckAcerto(false);
     removerVida();
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
     alterarPontuacao(props.debito_erro);
+    audio_bomba.play();
   }
 
   function acertouLetraA(props) {
@@ -86,8 +120,9 @@ function Letra(props) {
     setClassButton("button_game");
     setCheckAcerto(true);
     setCheckErro(false);
+    desabilitarTodosOsBotoes(true);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    audio_acerto.play();
   }
 
   function acertouLetraB(props) {
@@ -101,7 +136,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   function acertouLetraC(props) {
@@ -115,7 +151,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   function acertouLetraD(props) {
@@ -129,7 +166,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   function acertouLetraE(props) {
@@ -143,7 +181,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   function acertouLetraF(props) {
@@ -157,7 +196,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   function acertouLetraG(props) {
@@ -171,7 +211,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   function acertouLetraH(props) {
@@ -185,7 +226,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   function acertouLetraI(props) {
@@ -199,7 +241,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   function acertouLetraJ(props) {
@@ -213,7 +256,8 @@ function Letra(props) {
     setCheckAcerto(true);
     setCheckErro(false);
     alterarPontuacao(props.pontuacao_acerto);
-    setDisabled(true);
+    desabilitarTodosOsBotoes(true);
+    audio_acerto.play();
   }
 
   const label_buttons = {
@@ -235,7 +279,7 @@ function Letra(props) {
   const image_fogo_erro = "image/botoes/fogo_sem_numero.png";
   const image_proxima_letra = "image/botoes/botao_proximo.png";
 
-  const button_game_erro = "button_game_erro"
+  const button_game_erro = "button_game_erro";
 
   console.log(props.letra);
 
@@ -247,7 +291,7 @@ function Letra(props) {
     props.removerVida();
   }
 
-  // realizar a checagem do numero de vidas, 
+  // realizar a checagem do numero de vidas,
   // em caso de erro, remover a imagem da vida até o limite de 3
   // caso tenham se acabado as vidas, game over..
   function proximaLetra() {
@@ -263,37 +307,36 @@ function Letra(props) {
   }
 
   function handleClick(props, pos) {
-    if (disabled === true) {
+    if (checkDisabled() === true) {
       return;
     }
     if (props.letra === "a") {
       if (props.posicao[pos] === true) {
-        console.log("Acertou");
-        console.log(props.letra);
-        console.log(pos);
-        setExibeResultado(true);
         acertouLetraA(props);
       } else {
-        console.log("Você Errou, clicando na posição: %d", pos);
-        console.log(props.letra);
         explodirCampo(props);
       }
     }
-    if (props.letra === 'b') {
+    if (props.letra === "b") {
       console.log("Acertou Letra B");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
       console.log(qtdeVerdadeiro);
+      console.log("Status do botao 1: " + statusBotaoUm);
       if (qtdeVerdadeiro === props.quantidade_verdadeiro) {
         console.log("chamou acertou letra b");
         acertouLetraB(props);
       }
       if (props.posicao[pos] === true && pos === 1) {
         setBotaoUm(bandeira);
+        setStatusBotaoUm(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 2) {
         setBotaoDois(bandeira);
+        setStatusBotaoDois(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
@@ -312,7 +355,7 @@ function Letra(props) {
     // Requisitos...
     // Acrescentar o cristal após 3 acertos consecutivos
     // Se tiver perdido, ele recupera uma vida
-    if (props.letra === 'c') {
+    if (props.letra === "c") {
       console.log("Acertou Letra C");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
@@ -323,16 +366,20 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 1) {
         setBotaoUm(bandeira);
+        setStatusBotaoUm(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
-      if (props.posicao[pos] === true && pos === 2) {
+      if (props.posicao[pos] === false && pos === 2) {
         explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 3) {
         explodirCampo(props);
       }
-      if (props.posicao[pos] === false && pos === 4) {
+      if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
+        setStatusBotaoQuatro(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 5) {
@@ -343,7 +390,7 @@ function Letra(props) {
       }
     }
 
-    if (props.letra === 'd') {
+    if (props.letra === "d") {
       console.log("Acertou Letra D");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
@@ -353,9 +400,11 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 1) {
         setBotaoUm(bandeira);
+        setStatusBotaoUm(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
-      if (props.posicao[pos] === true && pos === 2) {
+      if (props.posicao[pos] === false && pos === 2) {
         explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 3) {
@@ -363,10 +412,14 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
+        setStatusBotaoQuatro(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 5) {
         setBotaoCinco(bandeira);
+        setStatusBotaoCinco(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
@@ -374,7 +427,7 @@ function Letra(props) {
       }
     }
 
-    if (props.letra === 'e') {
+    if (props.letra === "e") {
       console.log("Acertou Letra E");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
@@ -384,9 +437,11 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 1) {
         setBotaoUm(bandeira);
+        setStatusBotaoUm(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
-      if (props.posicao[pos] === true && pos === 2) {
+      if (props.posicao[pos] === false && pos === 2) {
         explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 3) {
@@ -397,6 +452,8 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 5) {
         setBotaoCinco(bandeira);
+        setStatusBotaoCinco(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
@@ -404,7 +461,7 @@ function Letra(props) {
       }
     }
 
-    if (props.letra === 'f') {
+    if (props.letra === "f") {
       console.log("Acertou Letra F");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
@@ -414,10 +471,14 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 1) {
         setBotaoUm(bandeira);
+        setStatusBotaoUm(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 2) {
         setBotaoDois(bandeira);
+        setStatusBotaoDois(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
@@ -425,9 +486,11 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
+        setStatusBotaoQuatro(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
-      if (props.posicao[pos] === true && pos === 5) {
+      if (props.posicao[pos] === false && pos === 5) {
         explodirCampo(props);
       }
       if (props.posicao[pos] === false && pos === 6) {
@@ -435,7 +498,7 @@ function Letra(props) {
       }
     }
 
-    if (props.letra === 'g') {
+    if (props.letra === "g") {
       console.log("Acertou Letra G");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
@@ -445,10 +508,14 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 1) {
         setBotaoUm(bandeira);
+        setStatusBotaoUm(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 2) {
         setBotaoDois(bandeira);
+        setStatusBotaoDois(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
@@ -456,10 +523,14 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
+        setStatusBotaoQuatro(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 5) {
         setBotaoCinco(bandeira);
+        setStatusBotaoCinco(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
@@ -467,7 +538,7 @@ function Letra(props) {
       }
     }
 
-    if (props.letra === 'h') {
+    if (props.letra === "h") {
       console.log("Acertou Letra H");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
@@ -477,10 +548,14 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 1) {
         setBotaoUm(bandeira);
+        setStatusBotaoUm(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 2) {
         setBotaoDois(bandeira);
+        setStatusBotaoDois(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
@@ -491,6 +566,8 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 5) {
         setBotaoCinco(bandeira);
+        setStatusBotaoCinco(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
@@ -498,7 +575,7 @@ function Letra(props) {
       }
     }
 
-    if (props.letra === 'i') {
+    if (props.letra === "i") {
       console.log("Acertou Letra I");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
@@ -511,6 +588,8 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 2) {
         setBotaoDois(bandeira);
+        setStatusBotaoDois(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
@@ -518,6 +597,8 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
+        setStatusBotaoQuatro(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 5) {
@@ -528,7 +609,7 @@ function Letra(props) {
       }
     }
 
-    if (props.letra === 'j') {
+    if (props.letra === "j") {
       console.log("Acertou Letra J");
       console.log(props.letra);
       console.log(props.quantidade_verdadeiro);
@@ -541,6 +622,8 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 2) {
         setBotaoDois(bandeira);
+        setStatusBotaoDois(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 3) {
@@ -548,24 +631,19 @@ function Letra(props) {
       }
       if (props.posicao[pos] === true && pos === 4) {
         setBotaoQuatro(bandeira);
+        setStatusBotaoQuatro(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === true && pos === 5) {
         setBotaoCinco(bandeira);
+        setStatusBotaoCinco(true);
+        audio_bandeira.play();
         incrementarVerdadeiro();
       }
       if (props.posicao[pos] === false && pos === 6) {
         explodirCampo(props);
       }
-    }
-  }
-
-  function exibirBraillinho() {}
-
-  function checkAcertou(props) {
-    if (exibeResultado === true) {
-      console.log("exibe imagem");
-      return <LetraImagem letra={image_a} />;
     }
   }
 
@@ -580,52 +658,100 @@ function Letra(props) {
         <div className="espaco_letras">
           <div id="caixa_campo">
             <div id="caixa_linha">
-              <Opcao
-                image={botaoUm}
-                classButton={classButton}
-                alt={texto_alt}
-                disabled={disabled}
-                onClick={() => handleClick(props.letra, 1)}
-              />
-              <Opcao
-                image={botaoQuatro}
-                classButton={classButton}
-                alt={texto_alt}
-                disabled={disabled}
-                onClick={() => handleClick(props.letra, 4)}
-              />
+              {statusBotaoUm === true ? (
+                <OpcaoDesabilitada
+                  image={botaoUm}
+                  classButton={classButton}
+                  alt={texto_alt}
+                />
+              ) : (
+                <Opcao
+                  image={botaoUm}
+                  classButton={classButton}
+                  alt={texto_alt}
+                  disabled={statusBotaoUm}
+                  onClick={() => handleClick(props.letra, 1)}
+                />
+              )}
+              {statusBotaoQuatro ? (
+                <OpcaoDesabilitada
+                  image={botaoQuatro}
+                  classButton={classButton}
+                  alt={texto_alt}
+                />
+              ) : (
+                <Opcao
+                  image={botaoQuatro}
+                  classButton={classButton}
+                  alt={texto_alt}
+                  disabled={statusBotaoQuatro}
+                  onClick={() => handleClick(props.letra, 4)}
+                />
+              )}
             </div>
             <div id="caixa_linha">
-              <Opcao
-                image={botaoDois}
-                classButton={classButton}
-                alt={texto_alt}
-                disabled={disabled}
-                onClick={() => handleClick(props.letra, 2)}
-              />
-              <Opcao
-                image={botaoCinco}
-                classButton={classButton}
-                alt={texto_alt}
-                disabled={disabled}
-                onClick={() => handleClick(props.letra, 5)}
-              />
+              {statusBotaoDois ? (
+                <OpcaoDesabilitada
+                  image={botaoDois}
+                  classButton={classButton}
+                  alt={texto_alt}
+                />
+              ) : (
+                <Opcao
+                  image={botaoDois}
+                  classButton={classButton}
+                  alt={texto_alt}
+                  disabled={statusBotaoDois}
+                  onClick={() => handleClick(props.letra, 2)}
+                />
+              )}
+              {statusBotaoCinco ? (
+                <OpcaoDesabilitada
+                  image={botaoCinco}
+                  classButton={classButton}
+                  alt={texto_alt}
+                />
+              ) : (
+                <Opcao
+                  image={botaoCinco}
+                  classButton={classButton}
+                  alt={texto_alt}
+                  disabled={statusBotaoCinco}
+                  onClick={() => handleClick(props.letra, 5)}
+                />
+              )}
             </div>
             <div id="caixa_linha">
-              <Opcao
-                image={botaoTres}
-                classButton={classButton}
-                alt={texto_alt}
-                disabled={disabled}
-                onClick={() => handleClick(props.letra, 3)}
-              />
-              <Opcao
-                image={botaoSeis}
-                classButton={classButton}
-                alt={texto_alt}
-                disabled={disabled}
-                onClick={() => handleClick(props.letra, 6)}
-              />
+              {statusBotaoTres ? (
+                <OpcaoDesabilitada
+                  image={botaoTres}
+                  classButton={classButton}
+                  alt={texto_alt}
+                />
+              ) : (
+                <Opcao
+                  image={botaoTres}
+                  classButton={classButton}
+                  alt={texto_alt}
+                  disabled={statusBotaoTres}
+                  onClick={() => handleClick(props.letra, 3)}
+                />
+              )}
+              {statusBotaoSeis ? (
+                <OpcaoDesabilitada
+                  image={botaoSeis}
+                  classButton={classButton}
+                  alt={texto_alt}
+                />
+              ) : (
+                <Opcao
+                  image={botaoSeis}
+                  classButton={classButton}
+                  alt={texto_alt}
+                  disabled={statusBotaoSeis}
+                  onClick={() => handleClick(props.letra, 6)}
+                />
+              )}
             </div>
             {checkAcerto ? (
               <div className="img-check">
@@ -633,7 +759,10 @@ function Letra(props) {
                   <Status imageSrc={imagem_correto} />
                 </div>
                 <div>
-                  <ProximaLetra imageSrc={image_proxima_letra} proximaLetra={() => proximaLetra()} />
+                  <ProximaLetra
+                    imageSrc={image_proxima_letra}
+                    proximaLetra={() => proximaLetra()}
+                  />
                 </div>
               </div>
             ) : (
@@ -645,14 +774,15 @@ function Letra(props) {
                   <Status imageSrc={imagem_erro} />
                 </div>
                 <div>
-                  <ProximaLetra imageSrc={image_proxima_letra} proximaLetra={() => proximaLetra()} />
+                  <ProximaLetra
+                    imageSrc={image_proxima_letra}
+                    proximaLetra={() => proximaLetra()}
+                  />
                 </div>
               </div>
             ) : (
               ""
             )}
-            {/* {exibeBraillinho ? <Braillinho imageSrc={imagem_braillinho} /> : "" } */}
-            {/* {checkAcertou(props)} */}
           </div>
         </div>
       </div>

@@ -50,7 +50,7 @@ img {
 }
 
 .navbar {
-  background-color: #d4ce82;
+  background-color: #95BB45;
   color: #fff;
   height: 70px;
 }
@@ -102,7 +102,7 @@ img {
 .quem-somos {
   color: #fff;
   height: 70px;
-  background-color: #D4CE82;
+  background-color: #95bb45;
 }
 
 .quem-somos ul {
@@ -239,6 +239,7 @@ img {
 
 .caixa-imagem-fundo-menu {
   background-color: #95bb45;
+  background-image: url("../image/background/background_menu_de_fases.png");
   background-repeat: no-repeat;
   width: 100%;
   height: 500px;
@@ -249,6 +250,26 @@ img {
   background-repeat: no-repeat;
   width: 100%;
   height: 500px;
+}
+
+.container-menu-fases {
+  max-width: auto;
+  margin: 0 auto;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.flex-menu-fases {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.caixa-menu-fases {
+  width: 274px;
+  height: 154px;
 }
 
 .opcao-menu {
