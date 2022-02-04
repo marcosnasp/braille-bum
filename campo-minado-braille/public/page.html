@@ -35,6 +35,12 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <audio id="acerto_letra" src="%PUBLIC_URL%/sound/acerto_letra.wav"></audio>
+    <audio id="bandeira" src="%PUBLIC_URL%/sound/bandeira.wav"></audio>
+    <audio id="bomba" src="%PUBLIC_URL%/sound/bomba.mp3"></audio>
+    <audio id="cristal" src="%PUBLIC_URL%/sound/cristal.wav"></audio>
+    <audio id="obter_vida" src="%PUBLIC_URL%/sound/cristal.wav"></audio>
+    <audio id="perder_vida" src="%PUBLIC_URL%/sound/cristal.wav"></audio>
     <div id="root">
       <div class="navbar-menu">
         <div class="container flex">
@@ -70,7 +76,7 @@
           </a>
         </div>
         <div class="opcao-menu">
-          <a href="/fases.html">
+          <a href="/index.html">
             <img
               src="image/botoes/botao_jogar.png"
               alt="Botão Jogar"
@@ -79,7 +85,7 @@
           </a>
         </div>
         <div class="opcao-menu">
-          <a href="/conquistas.html">
+          <a href="/conquistas.html" onclick="() => ">
             <img
               src="image/botoes/botao_conquistas.png"
               alt="Botão Conquistas"
